@@ -75,10 +75,14 @@ public final class Session implements AutoCloseable {
   }
 
   /** Wrap an existing session with the associated {@link Graph}. */
-  Session(Graph g, long nativeHandle) {
+  public Session(Graph g, long nativeHandle) {
     graph = g;
     this.nativeHandle = nativeHandle;
     graphRef = g.ref();
+  }
+
+  public long getNativeHandle() {
+    return nativeHandle;
   }
 
   /**

@@ -27,15 +27,21 @@ import java.util.Iterator;
  */
 public final class Graph implements ExecutionEnvironment, AutoCloseable {
 
+
   /** Create an empty Graph. */
   public Graph() {
     nativeHandle = allocate();
   }
 
   /** Create a Graph from an existing handle (takes ownership). */
-  Graph(long nativeHandle) {
+  public Graph(long nativeHandle) {
     this.nativeHandle = nativeHandle;
   }
+
+  public long getNativeHandle() {
+    return nativeHandle;
+  }
+
 
   /**
    * Release resources associated with the Graph.
